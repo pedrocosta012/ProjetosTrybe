@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.img-logo {
+  max-width: 90%;
+  width: 150px;
+}
+
+.user-info {
+  display: inline-block;
+}

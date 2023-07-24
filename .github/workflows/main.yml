@@ -3,9 +3,9 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  StyleLint-evaluator:
+  ESLint-evaluator:
     runs-on: self-hosted
-    name: StyleLint
+    name: ESLint
     steps:
       - name: Fetch project repository
         uses: actions/checkout@v2
@@ -18,33 +18,33 @@ jobs:
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/blocked-files-checkout
 
-      - name: Fetch Stylelint evaluator
+      - name: Fetch ESLint evaluator
         uses: actions/checkout@v2
         with:
-          repository: betrybe/stylelint-linter-action
-          ref: v2.1
+          repository: betrybe/eslint-linter-action
+          ref: v3
           token: ${{ secrets.GIT_HUB_PAT }}
-          path: .github/actions/stylelint-evaluator
-
+          path: .github/actions/eslint-evaluator
+          
       - name: Setup NodeJS
         uses: actions/setup-node@v1.4.4
         with:
           node-version: '14'
-
+          
       - name: Restore protected files
         uses: ./.github/actions/blocked-files-checkout
         with:
           restore_branch: 'master'
-
-      - name: Run StyleLint evaluator
-        uses: ./.github/actions/stylelint-evaluator
+          
+      - name: Run ESLint evaluator
+        uses: ./.github/actions/eslint-evaluator
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           pr_number: ${{ github.event.pull_request.number }}
 
   Evaluator:
     runs-on: self-hosted
-    name: Evaluator job
+    name: Evaluator Job
     steps:
       - name: Fetch project repository
         uses: actions/checkout@v2
@@ -57,13 +57,13 @@ jobs:
           token: ${{ secrets.GIT_HUB_PAT }}
           path: .github/actions/blocked-files-checkout
 
-      - name: Fetch Cypress evaluator
+      - name: Fetch Jest evaluator
         uses: actions/checkout@v2
         with:
-          repository: betrybe/cypress-evaluator-action
-          ref: v7
+          repository: betrybe/jest-evaluator-action
+          ref: v9.1
           token: ${{ secrets.GIT_HUB_PAT }}
-          path: .github/actions/cypress-evaluator
+          path: .github/actions/jest-evaluator
 
       - name: Fetch Store evaluation
         uses: actions/checkout@v2
@@ -83,9 +83,9 @@ jobs:
         with:
           restore_branch: 'master'
 
-      - name: Run Cypress evaluator
+      - name: Run Jest evaluation
         id: evaluator
-        uses: ./.github/actions/cypress-evaluator
+        uses: ./.github/actions/jest-evaluator
         with:
           pr_author_username: ${{ github.event.pull_request.user.login }}
 

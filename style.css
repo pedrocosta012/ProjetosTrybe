@@ -1,0 +1,24 @@
+.ball {
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  border-radius: 100%;
+  display: inline-block;
+}
+
+main {
+  display: inline-block;
+}
+
+#title {
+  margin-left: 60px;
+}
+
+#content, #score, #buttons-area {
+  text-align: center;
+  margin: auto;
+}
+
+button {
+  padding: 5px;
+}

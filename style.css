@@ -1,0 +1,114 @@
+body {
+  background-color: rgb(253, 251, 251);
+}
+
+#cabecalho {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  left: 0px;
+  color: white;
+  background-color: rgb(65, 42, 65);
+}
+
+#titulo {
+  text-align: center;
+}
+
+header p {
+  padding-left: 40px;
+}
+
+#minha_foto {
+  margin-top: 130px;
+  border-radius: 10px;
+}
+
+#vanderson, #minha_foto {
+  width: 200px;
+  text-align: left;
+}
+
+#vanderson {
+  margin-left: 50px;
+}
+
+h2 {
+  margin-top: 60px;
+}
+
+#list_learned {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 60px;
+  background-color: rgb(94, 241, 25);
+}
+
+#list_will_learn {
+  margin-left: 60px;
+  background-color: rgb(0, 238, 255);
+  display: inline-block;
+}
+
+#list_learned, #list_will_learn {
+  padding: 5px 15px;
+  border-radius: 25px;
+  width: 300px;
+}
+
+#antes {
+  color: #556b2f;
+  background-color: #090909;
+  width: 47%;
+  border-radius: 15px;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+#oi {
+  text-align: left;
+  margin-left: 10px;
+  width: 330px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 13px;
+}
+
+main {
+  padding: 15px;
+  margin-left: 30px;
+}
+
+span {
+  font-weight: 600;
+}
+
+#antes p {
+  width: 97%;
+  padding-left: 15px;
+  padding-bottom: 20px;
+}
+
+#jornada {
+  width: 47%;
+  display: inline-block;
+  float: right;
+  background-color: rgb(89, 153, 46);
+  color: white;
+  margin-top: 45px;
+  border-radius: 17px;
+  text-align: center;
+}
+
+section {
+  height: 600px;
+}
+
+aside {
+  margin-top: 120px;
+  margin-right: 60px;
+  float: right;
+}

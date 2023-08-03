@@ -1,5 +1,107 @@
-/* eslint-disable indent */
-window.onload = function () {
+function rgbColorGenerator() {
+	const randomValue = () => Math.floor(Math.random() * 254) + 1;
+	return `rgb(${randomValue()}, ${randomValue()}, ${randomValue()})`;
+}
+
+function changeBackgroundColor(element, color) {
+	element.style.backgroundColor =  color;
+}
+
+function arrayGenerator(size) {
+	const resultArray = [];
+	for (let i = 0; i < size; i += 1) {
+		resultArray.push('');
+	}
+	return resultArray;
+}
+
+function pixelColorize(event) {
+	const color = document.getElementsByClassName('selected')[0].style.backgroundColor;
+	changeBackgroundColor(event, color);
+}
+
+function selectColor(event) {
+  
+}
+
+function mountBoard(boardSize) {
+	if (boardSize < 5) return mountBoard(5);
+	if (boardSize > 50) return mountBoard(50);
+	const board = document.getElementById('pixel-board');
+	while (board.children.length !== 0) board.removeChild(board.children[0]);
+	for (let i = 0; i < boardSize; i += 1) {
+		const divLine = document.createElement('div');
+		for (let j = 0; j < boardSize; j += 1) {
+			const pixel = document.createElement('div');
+			pixel.className = 'pixel';
+			pixel.addEventListener('click', pixelColorize);
+			divLine.appendChild(pixel);
+		}
+		board.appendChild(divLine);
+	}
+}
+
+function resizeBoard() {
+	const newSize = Number.parseInt(document.getElementById('board-size').value, 10);
+	mountBoard(newSize);
+}
+
+function setColorPalette(colors) {
+	const paletteElements = [...document.getElementsByClassName('color')];
+	colors[0] = 'rgb(0, 0, 0)';
+	if (!colors.every((color) => color.startsWith('rgb('))) {
+		throw new Error('There is an invalid color in the new palette');
+	}
+	paletteElements.forEach((element, index) => {
+		changeBackgroundColor(element, colors[index]);
+	});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+window.onload = () => {
+	setColorPalette((arrayGenerator(4).map(() => rgbColorGenerator())));
+	mountBoard(5);
+};
+/* window.onload = function () {
 	function newColors() {
 		let allColors = document.getElementById('color-palette').children;
 		let count;
@@ -100,7 +202,7 @@ window.onload = function () {
 	function painter() {
 		let pixels = document.getElementsByClassName('pixel');
 		for (let pixel of pixels) {
-			pixel.addEventListener('click', function () {
+			pixel.addEventListener('click', function (event) {
 				let idColor = document.getElementsByClassName('selected')[0].getAttribute('id');
 				event.target.setAttribute('id', idColor);
 			});
@@ -121,3 +223,4 @@ window.onload = function () {
 	colorClear();
 
 };
+*/

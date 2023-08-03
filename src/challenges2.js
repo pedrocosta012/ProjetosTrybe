@@ -39,17 +39,17 @@ function triangleCheck(lineA, lineB, lineC) {
 }
 
 // Desafio 13
-function hydrate(biritas) {
-  const num = biritas.match(/\d+/g);
+function hydrate(beers) {
+  const beersNum = beers.match(/\d+/g);
 
-  if (num.length === 1 && num[0] === '1') {
-    return `${num[0]} copo de água`;
+  if (beersNum.length === 1 && beersNum[0] === '1') {
+    return `${beersNum[0]} copo de água`;
   }
-  let agua = 0;
-  for (let a of num) {
-    agua += Number.parseInt(a, 10);
+  let water = 0;
+  for (let num of beersNum) {
+    water += Number.parseInt(num, 10);
   }
-  return `${agua} copos de água`;
+  return `${water} copos de água`;
 }
 
 module.exports = {

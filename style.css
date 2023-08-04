@@ -19,23 +19,9 @@
   width: 100px;
 }
 
-#first {
-  background-color: black;
-}
-
-#second {
-  background-color: red;
-}
-
-#third {
-  background-color: blue;
-}
-
-#fourth {
-  background-color: green;
-}
-
 #pixel-board {
+  display: flex;
+  flex-direction: column;
   margin-top: 50px;
   margin-left: 50px;
 }
@@ -62,4 +48,11 @@
 
 #board-size {
   width: 168px;
+}
+
+.board-line {
+  height: 40px;
+  margin-left: 0;
+  margin-right: auto;
+  padding: auto;
 }
